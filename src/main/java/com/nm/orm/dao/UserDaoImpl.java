@@ -1,0 +1,16 @@
+package com.nm.orm.dao;
+
+import java.io.Serializable;
+import java.util.Collection;
+
+/**
+ * 功能说明：TODO
+ *
+ * @return <br/>
+ * 修改历史：<br/>
+ * 1.[2016年05月26日上午17:34] 创建方法 by hw
+ */
+public interface UserDaoImpl extends BaseDao{
+
+
+}
