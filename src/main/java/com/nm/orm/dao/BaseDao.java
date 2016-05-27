@@ -17,4 +17,10 @@ public interface BaseDao<T, U extends Serializable> {
     void insert(Collection<T> objs);
 
     T findById(U u);
+
+    void delete(T t);
+
+    int deleteAll(T t);
+
+    int deleteById(U u);
 }

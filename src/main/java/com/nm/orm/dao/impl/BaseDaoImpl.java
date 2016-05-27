@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import com.nm.orm.common.DaoConstants;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import com.nm.orm.dao.BaseDao;
  *         修改历史：<br/>
  *         1.[2016年05月26日上午17:38] 创建方法 by hw
  */
-public class BaseDaoImpl<T, U extends Serializable> implements BaseDao<T,U> {
+public class BaseDaoImpl<T, U extends Serializable> implements BaseDao<T, U> {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -57,5 +58,34 @@ public class BaseDaoImpl<T, U extends Serializable> implements BaseDao<T,U> {
 
     public T findById(U id) {
         return (T) getCurrentSession().get(this.entityClass, id);
+    }
+
+    public void delete(T obj) {
+        getCurrentSession().delete(obj);
+    }
+
+    public int deleteAll(T t) {
+        String hql = String.format("delete from %s",tableName);
+        return exexuteHqlUpdate(hql);
+    }
+
+    public int deleteById(U id) {
+        return this.deleteByIdHql(id);
+    }
+
+    /////////////////////////// private method
+    /////////////////////////// //////////////////////////////////////
+
+    private int deleteByIdHql(U u) {
+        StringBuffer hqlBuffer = new StringBuffer(" delete from ");
+        hqlBuffer.append(tableName).append(" where id = :id");
+        Query query = this.getCurrentSession()
+                .createQuery(hqlBuffer.toString());
+        query.setParameter("id", u);
+        return query.executeUpdate();
+    }
+
+    private int exexuteHqlUpdate(String hql){
+        return this.getCurrentSession().createQuery(hql).executeUpdate();
     }
 }
