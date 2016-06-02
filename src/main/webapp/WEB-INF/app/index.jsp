@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<%@page language="java" contentType="text/html; charset=utf-8"
+        pageEncoding="utf-8"%>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <script data-main="static/main" src="/nm/app/static/lib/require.js"></script>
 </head>
 <body>
@@ -12,7 +14,6 @@
             <li class="name">
                 <h1><a href="#">预留</a></h1>
             </li>
-            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
 
