@@ -19,6 +19,8 @@
 
     <!-- 开启spring注解驱动-->
     <mvc:annotation-driven/>
+    
+    <mvc:resources mapping="/static/**" location="../WEB-INF/app/static/"></mvc:resources>
 
     <!--&lt;!&ndash; 静态资源servlet配置 &ndash;&gt;-->
     <!--<mvc:default-servlet-handler/>-->
@@ -40,9 +42,10 @@
     <!--</bean>-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-        <property name="prefix" value="/WEB-INF/app"></property>
-        <property name="suffix" value=".html"></property>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="contentType" value="text/html"/>
+        <property name="prefix" value="/WEB-INF/app/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="1"></property>
     </bean>
-
 </beans>

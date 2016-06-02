@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script data-main="static/main" src="static/lib/require.js"></script>
+    <script data-main="static/main" src="/nm/app/static/lib/require.js"></script>
 </head>
 <body>
 <!--  --------------------------------- 头部 ------------------------------------------- -->

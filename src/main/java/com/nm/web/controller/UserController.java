@@ -3,10 +3,10 @@ package com.nm.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 功能说明：TODO
@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/user")
 public class UserController {
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    private String hello() {
-        return "hello";
+    HttpServletRequest request;
+    HttpServletResponse response;
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    private ModelAndView hello() {
+        return new ModelAndView("index");
     }
 }

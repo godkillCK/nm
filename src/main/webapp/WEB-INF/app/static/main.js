@@ -3,7 +3,7 @@
  */
 requirejs.config({
     //定义requre加载的根目录
-    baseUrl:"static/lib",
+    baseUrl:"/nm/app/static/lib",
     //css加载（需要依赖require的css.js）
     map:{
         "*":{
