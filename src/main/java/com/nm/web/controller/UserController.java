@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/user")
 public class UserController {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     private String hello() {
         return "hello";
     }
