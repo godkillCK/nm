@@ -14,7 +14,7 @@ requirejs.config({
     shim:{
         foundation:{
             deps:[
-                "jquery","css!../css/foundation/foundation.css","css!../css/nm-nav.css"
+                "jquery","css!../css/foundation/foundation.css","css!../css/nm-nav.css","css!../css/foundation/normalize.css"
             ]
         }
     },
@@ -30,6 +30,7 @@ requirejs.config({
 requirejs(['jquery',"util","foundation","domReady"],function($, util,f,ready){
     //首页模块加载
     ready(function(){
+        // $(document).foundation();
 
     });
 });
