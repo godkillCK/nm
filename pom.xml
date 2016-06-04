@@ -190,9 +190,11 @@
                             <filtering>true</filtering>
                         </resource>
                         <resource>
-                            <directory>${project.basedir}/src/main/webapp/WEB-INF/app</directory>
-                            <targetPath>app</targetPath>
-                            <filtering>true</filtering>
+                            <directory>${project.basedir}/src/main/webapp/static</directory>
+                            <targetPath>static</targetPath>
+                            <includes>
+                                <include>index.html</include>
+                            </includes>
                         </resource>
                     </webResources>
                 </configuration>
