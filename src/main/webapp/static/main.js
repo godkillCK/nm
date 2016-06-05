@@ -14,7 +14,7 @@ requirejs.config({
     shim: {
         foundation: {
             deps: [
-                "jquery", "css!../css/foundation/foundation.css", "css!../css/nm-nav.css", "css!../css/foundation/normalize.css"
+                "jquery", "css!../css/foundation/foundation.css", "css!../css/nm-nav.css", "css!../css/foundation/normalize.css","css!../css/common.css"
             ]
         },
         slick: {

@@ -1,0 +1,56 @@
+body {
+    background: #F7F7F7;
+}
+<!--热帖模块css-->
+.miui_bm img {
+    border: 0px;
+    border-radius: 5px;
+    margin: 10px 0px 0px;
+}
+
+.u_article li {
+    margin-bottom: 7px;
+    height: 20px;
+    overflow: hidden;
+    ertical-align:middle;
+}
+.u_article li a {
+     font-family: 'Microsoft YaHei';
+    color: #909090;
+    font: 12px/1.5 Microsoft YaHei,Tahoma,Helvetica,'SimSun',sans-serif;
+
+ }
+
+
+.miui_bm {
+    margin-bottom: 10px;
+}
+.b_bw {
+    width: 218px;
+    background: white;
+}
+.b_pad {
+    padding: 15px 15px 19px;
+}
+.b_line {
+    border: 1px solid #e6e6e6;
+}
+.b_rad {
+    border-radius: 5px;
+}
+div {
+    display: block;
+}
+.cl {
+    zoom: 1;
+}
+Style Attribute {
+    zoom: 1;
+}
+body, input, button, select, textarea {
+    font: 12px/1.5 Microsoft YaHei,Tahoma,Helvetica,'SimSun',sans-serif;
+    color: #444;
+}
+* {
+    word-wrap: break-word;
+}
