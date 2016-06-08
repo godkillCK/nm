@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.nm.orm.dao.BaseDao;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * 功能说明：TODO
@@ -17,19 +18,19 @@ import com.nm.orm.dao.BaseDao;
  *         修改历史：<br/>
  *         1.[2016年05月26日上午17:38] 创建方法 by hw
  */
-public class BaseDaoImpl<T, U extends Serializable> implements BaseDao<T, U> {
+public abstract class BaseDaoImpl<T, U extends Serializable>
+        implements BaseDao<T, U> {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 
-    private Class<T> entityClass;
+    Class<T> entityClass;
 
-    private String tableName;
+    String tableName;
 
-    private BaseDaoImpl(Class<T> entityClass) {
-        this.entityClass = entityClass;
-        this.tableName = entityClass.getSimpleName();
-    }
+    // public BaseDaoImpl(Class<T> entityClass) {
+    // this.entityClass = entityClass;
+    // this.tableName = entityClass.getSimpleName();
+    // }
 
     public U insert(T o) {
         return (U) this.getCurrentSession().save(o);
@@ -65,7 +66,7 @@ public class BaseDaoImpl<T, U extends Serializable> implements BaseDao<T, U> {
     }
 
     public int deleteAll(T t) {
-        String hql = String.format("delete from %s",tableName);
+        String hql = String.format("delete from %s", tableName);
         return exexuteHqlUpdate(hql);
     }
 
@@ -76,7 +77,7 @@ public class BaseDaoImpl<T, U extends Serializable> implements BaseDao<T, U> {
     /////////////////////////// private method
     /////////////////////////// //////////////////////////////////////
 
-    private int deleteByIdHql(U u) {
+    public int deleteByIdHql(U u) {
         StringBuffer hqlBuffer = new StringBuffer(" delete from ");
         hqlBuffer.append(tableName).append(" where id = :id");
         Query query = this.getCurrentSession()
@@ -85,7 +86,20 @@ public class BaseDaoImpl<T, U extends Serializable> implements BaseDao<T, U> {
         return query.executeUpdate();
     }
 
-    private int exexuteHqlUpdate(String hql){
+    public int exexuteHqlUpdate(String hql) {
         return this.getCurrentSession().createQuery(hql).executeUpdate();
+    }
+
+    protected SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    @Autowired
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    protected void setEntityClass(Class<T> entityClass) {
+        this.entityClass = entityClass;
     }
 }

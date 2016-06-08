@@ -17,7 +17,6 @@ public abstract class BaseController {
         return getResult(new Result(data));
     }
 
-    //
     public ResponseEntity<Result> getResult(Result result) {
         ResponseEntity<Result> responseEntity = null;
         if (null == result) {
