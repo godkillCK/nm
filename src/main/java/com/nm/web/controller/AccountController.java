@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  *         修改历史：<br/>
  *         1.[2016年05月27日上午10:45] 创建方法 by hw
  */
-@RestController
+@Controller
 @RequestMapping(path = "/account")
 public class AccountController extends BaseController {
 

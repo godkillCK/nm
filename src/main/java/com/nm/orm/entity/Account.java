@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  *
  * @return <br/>
  * 修改历史：<br/>
- * 1.[2016年06月06日上午15:39] 创建方法 by hw
+ * 1.[2016年06月17日上午21:09] 创建方法 by hw
  */
 @Entity
 public class Account {
@@ -25,6 +25,10 @@ public class Account {
     private Timestamp createDate;
     private Timestamp modifyDate;
     private Timestamp birthDay;
+    private String icon;
+    private Integer vip;
+    private Integer level;
+    private Integer status;
 
     @Id
     @Column(name = "id")
@@ -126,6 +130,46 @@ public class Account {
         this.birthDay = birthDay;
     }
 
+    @Basic
+    @Column(name = "icon")
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    @Basic
+    @Column(name = "vip")
+    public Integer getVip() {
+        return vip;
+    }
+
+    public void setVip(Integer vip) {
+        this.vip = vip;
+    }
+
+    @Basic
+    @Column(name = "level")
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -143,6 +187,10 @@ public class Account {
         if (createDate != null ? !createDate.equals(account.createDate) : account.createDate != null) return false;
         if (modifyDate != null ? !modifyDate.equals(account.modifyDate) : account.modifyDate != null) return false;
         if (birthDay != null ? !birthDay.equals(account.birthDay) : account.birthDay != null) return false;
+        if (icon != null ? !icon.equals(account.icon) : account.icon != null) return false;
+        if (vip != null ? !vip.equals(account.vip) : account.vip != null) return false;
+        if (level != null ? !level.equals(account.level) : account.level != null) return false;
+        if (status != null ? !status.equals(account.status) : account.status != null) return false;
 
         return true;
     }
@@ -159,6 +207,10 @@ public class Account {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (modifyDate != null ? modifyDate.hashCode() : 0);
         result = 31 * result + (birthDay != null ? birthDay.hashCode() : 0);
+        result = 31 * result + (icon != null ? icon.hashCode() : 0);
+        result = 31 * result + (vip != null ? vip.hashCode() : 0);
+        result = 31 * result + (level != null ? level.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

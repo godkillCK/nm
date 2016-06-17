@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 /**
@@ -19,6 +20,12 @@ public class Article {
     private String title;
     private byte[] content;
     private Integer heat;
+    private Integer support;
+    private Integer hate;
+    private Integer see;
+    private Timestamp createDate;
+    private Timestamp modifyDate;
+    private Integer status;
 
     @Id
     @Column(name = "id")
@@ -82,5 +89,65 @@ public class Article {
         result = 31 * result + Arrays.hashCode(content);
         result = 31 * result + (heat != null ? heat.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "support")
+    public Integer getSupport() {
+        return support;
+    }
+
+    public void setSupport(Integer support) {
+        this.support = support;
+    }
+
+    @Basic
+    @Column(name = "hate")
+    public Integer getHate() {
+        return hate;
+    }
+
+    public void setHate(Integer hate) {
+        this.hate = hate;
+    }
+
+    @Basic
+    @Column(name = "see")
+    public Integer getSee() {
+        return see;
+    }
+
+    public void setSee(Integer see) {
+        this.see = see;
+    }
+
+    @Basic
+    @Column(name = "createDate")
+    public Timestamp getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+    }
+
+    @Basic
+    @Column(name = "modifyDate")
+    public Timestamp getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Timestamp modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
